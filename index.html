@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#111418">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>PDF Drive Reader</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>PDF Drive Reader</h1>
+    <button id="settingsBtn" class="icon-btn" aria-label="Settings">⚙</button>
+  </header>
+
+  <main>
+    <section id="setup" hidden>
+      <h2>Setup</h2>
+      <p>Paste the <b>Application (client) ID</b> from your Azure app registration (see README).</p>
+      <label>Client ID <input id="clientId" autocomplete="off" spellcheck="false"></label>
+      <label>OneDrive folder path <input id="folderPath" placeholder="e.g. Documents/To Read" spellcheck="false"></label>
+      <label>Order
+        <select id="order">
+          <option value="newest">Newest created first</option>
+          <option value="oldest">Oldest created first</option>
+        </select>
+      </label>
+      <label>Speed <input id="rate" type="range" min="0.6" max="2" step="0.1"> <span id="rateVal"></span></label>
+      <label>Voice <select id="voice"></select></label>
+      <label class="check"><input id="skipPlayed" type="checkbox"> Skip PDFs I've already finished</label>
+      <label class="check"><input id="announce" type="checkbox"> Announce each title before reading</label>
+      <div class="row">
+        <button id="saveSettings" class="primary">Save</button>
+        <button id="resetPlayed">Mark all unread</button>
+        <button id="signOut">Sign out</button>
+      </div>
+    </section>
+
+    <section id="login" hidden>
+      <button id="signIn" class="primary big">Sign in with Microsoft</button>
+    </section>
+
+    <section id="player" hidden>
+      <div id="nowTitle" class="now-title">—</div>
+      <div id="status" class="status">Ready</div>
+      <progress id="progress" max="1" value="0"></progress>
+
+      <div class="controls">
+        <button id="prevBtn" aria-label="Previous PDF">⏮</button>
+        <button id="backBtn" aria-label="Back a few sentences">↺</button>
+        <button id="playBtn" class="play" aria-label="Play">▶</button>
+        <button id="fwdBtn" aria-label="Forward a few sentences">↻</button>
+        <button id="nextBtn" aria-label="Next PDF">⏭</button>
+      </div>
+
+      <div class="list-head">
+        <h2>Queue</h2>
+        <button id="refreshBtn">Refresh</button>
+      </div>
+      <ol id="fileList"></ol>
+    </section>
+  </main>
+
+  <!-- MSAL (Microsoft sign-in) and pdf.js (PDF text extraction) -->
+  <script src="https://cdn.jsdelivr.net/npm/@azure/msal-browser@2.38.3/lib/msal-browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

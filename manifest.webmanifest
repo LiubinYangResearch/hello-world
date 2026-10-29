@@ -1,0 +1,13 @@
+{
+  "name": "PDF Drive Reader",
+  "short_name": "PDF Reader",
+  "description": "Reads the PDFs in a OneDrive folder aloud, newest first.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#111418",
+  "theme_color": "#111418",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

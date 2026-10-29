@@ -1,0 +1,59 @@
+:root {
+  --bg: #111418;
+  --panel: #1c2128;
+  --text: #e8eaed;
+  --muted: #9aa3ad;
+  --accent: #4f9cf9;
+  --done: #5c6670;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  padding: env(safe-area-inset-top) 16px env(safe-area-inset-bottom);
+}
+header { display: flex; align-items: center; justify-content: space-between; }
+h1 { font-size: 20px; margin: 14px 0; }
+h2 { font-size: 17px; margin: 18px 0 8px; color: var(--muted); }
+button {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid #2c333c;
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 16px;
+}
+button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+button.big { width: 100%; padding: 22px; font-size: 20px; margin-top: 40px; }
+.icon-btn { font-size: 22px; padding: 6px 12px; }
+label { display: block; margin: 12px 0; color: var(--muted); }
+label.check { display: flex; gap: 10px; align-items: center; color: var(--text); }
+input:not([type]), input[type=text], select {
+  display: block; width: 100%; margin-top: 4px; padding: 10px;
+  background: var(--panel); color: var(--text); border: 1px solid #2c333c; border-radius: 8px; font-size: 16px;
+}
+input[type=range] { width: 70%; vertical-align: middle; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+
+.now-title { font-size: 22px; font-weight: 600; margin-top: 12px; min-height: 2.8em; overflow-wrap: anywhere; }
+.status { color: var(--muted); min-height: 1.4em; }
+progress { width: 100%; height: 8px; margin: 10px 0 4px; accent-color: var(--accent); }
+
+/* Large, well-spaced controls so they can be hit without looking closely. */
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.6fr 1fr 1fr;
+  gap: 10px;
+  margin: 16px 0;
+}
+.controls button { font-size: 30px; padding: 22px 0; border-radius: 18px; }
+.controls .play { background: var(--accent); border-color: var(--accent); font-size: 40px; }
+
+.list-head { display: flex; align-items: center; justify-content: space-between; }
+#fileList { padding-left: 22px; margin: 0 0 40px; }
+#fileList li { padding: 10px 4px; border-bottom: 1px solid #222830; overflow-wrap: anywhere; }
+#fileList li small { display: block; color: var(--muted); }
+#fileList li.played { color: var(--done); }
+#fileList li.current { color: var(--accent); font-weight: 600; }
