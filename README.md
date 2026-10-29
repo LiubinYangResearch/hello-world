@@ -14,6 +14,14 @@ through files while driving.
 It runs entirely in your phone's browser. Your files go only between your phone
 and Microsoft. The speech uses your phone's built-in voices.
 
+> **Two versions live in this repo:**
+> - **This web app** (repo root) runs in Safari or Chrome. It's quick to set up,
+>   but it has to stay on screen and can't connect to CarPlay or pause for calls
+>   and directions.
+> - **The native iPhone app** in [`ios/`](ios/README.md) adds CarPlay, pauses for
+>   phone calls and Apple Maps directions, resumes automatically, and keeps
+>   reading with the screen locked. It needs a Mac with Xcode to install.
+
 ## Why not modify Adobe Acrobat?
 
 Acrobat Reader for mobile is closed source and has no plug-in or scripting support,
@@ -71,8 +79,8 @@ This lets the app ask your permission to read your OneDrive.
 
 **Keep the app on screen while it reads.** Phone browsers, iPhones especially,
 may stop built-in speech when the screen locks or you switch apps. The app keeps
-the screen awake for you. If you need it to keep reading behind other apps
-(for example, alongside navigation), see *Ideas for later* below.
+the screen awake for you. For CarPlay, background reading, and pausing for calls
+and directions, use the [native iPhone app](ios/README.md).
 
 ## Limitations
 
